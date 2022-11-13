@@ -8,5 +8,5 @@
 
       - name: print the uptime on all the machine
         ansible.builtin.shell:
-               cmd: uptime
+               cmd: "uptime"
   
