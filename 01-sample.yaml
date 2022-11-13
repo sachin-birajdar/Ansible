@@ -6,9 +6,4 @@
         ansible.builtin.debug:
                msg: Hai from task1 of play1
 
-
-      - name: print the uptime on all the machine
-        ansible.builtin.shell: 
-               register: uptime
-        ansible.builtin.debug: 
-                  var: uptime
+           
