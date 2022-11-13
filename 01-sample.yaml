@@ -10,5 +10,5 @@
       - name: print the uptime on all the machine
         ansible.builtin.shell: 
                register: uptime
-      - debug: 
-             var: uptime
+        ansible.builtin.debug: 
+                  var: uptime
