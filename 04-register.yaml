@@ -2,10 +2,10 @@
   hosts: all
   tasks:
        
-      -name: Running a shell command
-         ansible.builtin.shell: id
-           register: out
+    - name: Running a shell command
+        ansible.builtin.shell: id
+         register: out
 
-      -name: Prinint the registered output
-         ansible.builtin.debug:
-           msg: "{{OUT.stdout}}"
+    - name: Prinint the registered output
+        ansible.builtin.debug:
+          msg: "{{OUT.stdout}}"
