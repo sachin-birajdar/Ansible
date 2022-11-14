@@ -4,7 +4,7 @@
        
     - name: Running a shell command
         ansible.builtin.shell: id
-         register: out
+         register: OUT
 
     - name: Prinint the registered output
         ansible.builtin.debug:
