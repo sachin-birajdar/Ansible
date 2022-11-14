@@ -6,4 +6,4 @@
               msg: OS Distro is {{ansible_distribution}}
       - name: Printing Mac Address 
         ansible.builtin.debug:
-              msg: Mac Address is {{ansible_default_ipv4.macaddress}}
+              msg: IP Address is {{ test_list | ansible.utils.ipaddr }}
