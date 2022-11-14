@@ -1,0 +1,11 @@
+- name: Demo on condition
+  hosts: all
+  vars:
+   action: true
+  tasks:
+
+   - name: Run this when os is centos
+     ansible.builtin.debug:
+        msg: Hai from centos 
+     when: action
+   
