@@ -1,7 +1,6 @@
 - name: Demo on register
   hosts: all
   tasks:
-       
     - name: Running a shell command
         ansible.builtin.shell: id
          register: OUT
