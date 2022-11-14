@@ -1,5 +1,5 @@
 - name: Demo on facts
-  host: all
+  hosts: all
   tasks: 
       - name: print os distro
         ansible.builtin.debug:
