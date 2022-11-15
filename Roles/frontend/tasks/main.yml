@@ -10,5 +10,11 @@
      remote_src: yes
 
 - name: Cleanup of old html content
+  ansible.builtin.file:
    path: /usr/share/nginx/html
    state: absent
+
+-  name: coping fronend context to nginx path
+   ansible.builtin.copy:
+      src: /tmp/frontend-main/static/
+      dest: /usr/share/nginx/html
