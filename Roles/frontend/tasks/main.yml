@@ -20,7 +20,13 @@
      dest: /usr/share/nginx/html
      remote_src: yes
 
-- name: Copying proxy  Configuration  
+- name: Copying proxy Configuration  
   ansible.builtin.copy:
     src: roboshop.conf 
     dest: /etc/nginx/default.d/roboshop.conf 
+
+- name: Starting the nginx service
+  ansible.builtin.service:
+    Name: nginx
+    state: restarted
+    enabled: yes
