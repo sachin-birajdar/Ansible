@@ -1,6 +1,6 @@
 -  name: coping mongo db repo file
    ansible.builtin.copy:
-     src: mongodb.repo
+     src: mongod.repo
      dest: /etc/yum.repos.d/mongodb.repo
 
 - name: installing Mogodb
@@ -26,12 +26,20 @@
      dest: /tmp
      remote_src: yes
 
-- name: Load a catluage schema
+- name: Load a catalogue schema
   community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/catalogue.js"
-    idempotent: yes
+    file: "/tmp/mongodb-main/{{item}}.js"
+    idempotent: yes  
+  loop:
+      - catalogue  
+      - users 
 
-- name: Load a user schema
-  community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/user.js"
-    idempotent: yes
+# - name: Load a catluage schema
+#   community.mongodb.mongodb_shell:
+#     file: "/tmp/mongodb-main/catalogue.js"
+#     idempotent: yes
+
+# - name: Load a user schema
+#   community.mongodb.mongodb_shell:
+#     file: "/tmp/mongodb-main/user.js"
+#     idempotent: yes
