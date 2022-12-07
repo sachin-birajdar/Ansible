@@ -1,6 +1,6 @@
 -  name: coping mongo db repo file
    ansible.builtin.copy:
-     src: mongod.repo
+     src: mongodb.repo
      dest: /etc/yum.repos.d/mongodb.repo
 
 - name: installing Mogodb
