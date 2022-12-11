@@ -31,3 +31,24 @@
      dest: /home/{{APPUSER}}/{{COMPONENT}}/
      remote_src: yes
      become_user: "{{APPUSER}}"
+
+- name: Install NodeJS  packages based on package.json file 
+  community.general.npm:
+     path: /home/{{APPUSER}}/{{COMPONENT}}/
+
+
+-  name: coping systemd file
+   ansible.builtin.copy:
+     src: systemd.service
+     dest: /etc/systemd/system/catalogue.service
+
+- name: Starting the {{COMPONENT}} service
+  ansible.builtin.systemd:
+    Name: "{{COMPONENT}}"
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
+
+  
+    
+     
