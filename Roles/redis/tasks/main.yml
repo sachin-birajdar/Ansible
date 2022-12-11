@@ -1,0 +1,20 @@
+
+-  name: coping {{COMPONENT}} to repo
+   ansible.builtin.copy:
+     src: redis.repo
+     dest: /etc/yum.repos.d/redis.repo
+
+- name: installing {{COMPONENT}}
+   ansible.builtin.package:
+     name: redis-6.2.7
+     state: present
+     
+
+- name: updating {{COMPONENT}}  config
+  ansible.builtin.replace:
+    path: "{{item}}"
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+  loop:
+    - /etc/mongod.conf
+    - /etc/redis/redis.conf
