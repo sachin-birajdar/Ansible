@@ -1,13 +1,13 @@
 - name: configure the Yum repo
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-- name: installing nodejs
-  ansible.builtin.package:
-     name: "{{item}}"
-     state: present
-  loop:
-    - nodejs
-    - gcc-c++
+- name: Install NodeJS 
+  ansible.builtin.yum:
+    name: "{{item}}"
+    state: present  
+  loop: 
+    - nodejs 
+    - gcc-c++ 
 
 - name: creating application user
   ansible.builtin.user:
