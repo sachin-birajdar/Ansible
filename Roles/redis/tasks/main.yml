@@ -4,7 +4,7 @@
      src: redis.repo
      dest: /etc/yum.repos.d/redis.repo
 
-- name: installing {{COMPONENT}}
+-  name: install {{COMPONENT}}
    ansible.builtin.package:
      name: redis-6.2.7
      state: present
@@ -21,6 +21,6 @@
 
 - name: Starting the {{COMPONENT}}  service
   ansible.builtin.service:
-    name: {{COMPONENT}}
+    name: "{{COMPONENT}}"
     state: started
     enabled: yes
